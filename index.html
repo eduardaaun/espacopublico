@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>espaço público | brasilia </title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" rel="stylesheet">
+    <link href="./styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis|Inconsolata" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.typekit.net/lny7ubz.css"> 
+    
+
+  </head>
+  
+  <body>
+    <div class="map-wrapper">
+      <div class="nav-bar-map"> 
+         <ul>
+<li class="selected"><a href="index.html">Mapa!</a></li>
+<li><a href="about.html">Sobre</a></li>
+<li><a href="howto.html">Faça-você-mesmo</a></li>
+<li><a href="stories.html">Brasilienses Engajados</a></li>
+<li><a href="problem.html">O Problema</a></li>         
+</ul>
+      </div>
+    
+      <div id="map"></div>
+    </div>
+    
+  
+
+    <div class="left-sidebar" style="height: 100%;">
+    
+      <div class="logo">
+        <img src="https://cdn.glitch.com/2c339e89-b510-4146-a096-d1b013c77101%2FESPACO-PUBLICO-bsb.png?1527266173622">
+      </div>
+  <div class="left-sidebar-content">
+  
+  <p class ="title-commoning">
+    // BUSCA POR:
+  </p>
+    <p class ="subtitle-commoning">
+    + Bairro
+  </p>
+   <select class="people-picker">
+        <option value="all">Todos</option>
+        <option value="community organization">Organizações comunitárias</option>
+        <option value="cultural producer">Produtores culturais</option>
+        <option value="urban experts">Experts urbanos</option>
+        <option value="activists">Ativistas</option>
+        <option value="none">Nenhum</option>
+  </select>
+    <p class ="subtitle-commoning">
+   + Atividade
+  </p>
+   <select class="action-picker">
+        <option value="all">Todas as ações</option>
+        <option value="party">Festas</option>
+        <option value="music">Música</option>
+        <option value="street carnival">Bloco de carnaval</option>
+        <option value="samba circle">Roda de samba</option>
+        <option value="sarau">Sarau</option>
+        <option value="market">Feira</option>
+        <option value="creative economy">Economia criativa</option>
+        <option value="festival">Festival</option>
+        <option value="outdoors movie theatre">Cinema ao ar livre</option>
+        <option value="itinerant bar">Bar itinerante</option>
+        <option value="critical mass cycling">Bicicletada</option>
+        <option value="community garden">Hortas comunitárias</option>
+        <option value="placemaking">Intervenções urbanas</option>
+        <option value="workshop">Oficinas</option>
+        <option value="participatory mapping">Mapeamento participativo</option>
+        <option value="Jane's Walk">Caminhadas pedagógicas</option>
+        <option value="Playstreet">Rua de lazer</option>
+        <option value="none">Nenhuma</option>
+  </select>
+   <p class ="subtitle-commoning">
+   + Tipo de espaço
+  </p>
+   <select class="space-picker">
+        <option value="all">Todos os espaços</option>
+        <option value="praca">Praças</option>
+        <option value="parque">Parques</option>
+        <option value="skatepark">Skatepark</option>
+        <option value="calcadao">Calçadão</option>
+        <option value="gramado">Gramado</option>
+        <option value="lote vazio">Lotes vazios</option>
+        <option value="entrequadra">Entrequadra</option>
+        <option value="beco">Becos</option>
+        <option value="passarela subterranea">Passagens subterrâneas</option>
+        <option value="equipamento cultural">Equipamento cultural</option>
+        <option value="casa de cultura">Casas de cultura</option>
+        <option value="none">Nenhum</option>
+  </select>
+     <p class ="subtitle-commoning">
+   + Temporalidade 
+  </p>
+   <select class="time-picker">
+        <option value="all">Todos</option>
+        <option value="temporary">Temporários</option>
+        <option value="permanent">Permanentes</option>
+        <option value="none">Nenhum</option>
+  </select>
+  
+    <p class ="subtitle-charact">
+    // CARACTERÍSTICAS DEMOGRÁFICAS 
+  </p>
+  <label class="container-orange"> Densidade
+  <input type="checkbox" class="density-checkbox" >
+  <span class="checkmark-orange"></span>
+</label> 
+    <label class="container-orange">Renda 
+  <input type="checkbox" class="income-checkbox" >
+  <span class="checkmark-orange"></span>
+</label>
+  
+    <p class ="subtitle-access">
+    // DADOS URBANOS
+    </p>
+    
+   <label class="container-green"> Paradas de ônibus
+  <input type="checkbox" class="bus-checkbox" >
+  <span class="checkmark-green"></span>
+</label> 
+    <label class="container-green"> Metrô
+  <input type="checkbox" class="subway-checkbox" >
+  <span class="checkmark-green"></span>
+</label>
+    <label class="container-green"> Bicicletas compartilhadas
+  <input type="checkbox" class="bike-checkbox" >
+  <span class="checkmark-green"></span>
+</label>
+    
+    <div class="legend-people">
+      <img src="https://cdn.glitch.com/2c339e89-b510-4146-a096-d1b013c77101%2Flegenda-organizacao.jpg?1527265905269">
+    </div>
+    <div class="legend-income">
+      <img src="https://cdn.glitch.com/208a0d7e-ba15-437a-922f-d3c0f5f0ee77%2Flegend-income-bl-nomargin.jpg?1524788406461">
+    </div>
+    <div class="legend-density">
+      <img src="https://cdn.glitch.com/208a0d7e-ba15-437a-922f-d3c0f5f0ee77%2Fdensity-legend-nomargun.jpg?1524788619480">
+    </div>
+     <div class="legend-access">
+      <img src="https://cdn.glitch.com/208a0d7e-ba15-437a-922f-d3c0f5f0ee77%2Flegend-access-01.jpg?1524789452866">
+    </div>
+      <div class="calendar">
+<div data-tockify-component="mini" data-tockify-calendar="eduarda"></div>
+<script data-cfasync="false" data-tockify-script="embed" src="https://public.tockify.com/browser/embed.js"></script>
+      </div>
+    
+    
+      
+    
+<div class="sidebar">
+  <a aria-label="close" class="panel-close">×</a>
+  
+  <button class="sidebar-button">
+ <div style="font-size:2em; color:#B10CFF">
+   <i class="fas fa-angle-double-down"></i>
+</div>
+  </button>
+  
+
+  
+  <div class="sidebar-content">
+    <h2>// espaço público </h2>
+        
+        <!-- We create a div where the feature data will go when clicked on: -->
+        <div class="sidebar-feature-content"></div>
+        
+        <div class="sidebar-footer">
+  
+        </div>
+  </div>
+  
+
+  
+      </div>
+    
+    
+    <!-- Load Leaflet and Carto libraries -->
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+    <script src="https://cartodb-libs.global.ssl.fastly.net/carto.js/v4.0.0-beta/carto.min.js"></script>
+    <script src="https://unpkg.com/reqwest@2.0.5/reqwest.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+    
+    <!-- Load our JavaScript -->
+<script src="./script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
+

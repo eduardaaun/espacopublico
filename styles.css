@@ -1,0 +1,673 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.nav-bar-map{
+  overflow: hidden;
+  background: transparent;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  z-index: 3000;
+  right: 0;
+  padding: 14px 16px;
+}
+
+.nav-bar {
+  overflow: hidden;
+  background-color: white;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  z-index: 3000;
+  right: 0;
+  padding: 14px 16px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+  float: right;
+  padding: 8px;
+}
+
+li a {
+  border-style: solid;
+    display: block;
+    color: #B10CFF;
+    text-align: center;
+    padding: 3px 5px;
+    text-decoration: none;
+    font-size: 12px;
+    font-family: nudista-web, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+   
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+background-color: #B10CFF;
+  border-color: #B10CFF;
+ color: white;
+}
+  
+/*  specific CSS for your menu*/
+div.nav-bar li.selected a { 
+background-color: #B10CFF;
+  border-color: #B10CFF;
+ color: white;
+} 
+
+.navbar-logo {
+  float: left;
+    vertical-align: top;
+    width: 150px;
+    height: 50px;
+    margin-left: 30px;
+  margin-top: 0px;
+} 
+  
+.map-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%; 
+}
+
+#map {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.left-sidebar{
+    height: 100%;
+    width: 20%;
+    position: absolute;
+    opacity: 0.9;
+    left: 1px;
+    margin-top: 0px;
+    display: inline-block;
+    background-color: white;
+    padding: 20px;
+    font-size: 1.6em;
+    z-index: 3;
+
+.layer-picker:
+position: absolute;
+right: 15px;
+top: 15px;
+z-index: 20000; 
+}
+
+.page-intro{
+  margin: 8em auto; 
+  z-index: 2000;
+  height: 100%;
+  }
+.page-intro-center{
+  margin: 8em auto; 
+  z-index: 2000;
+  height: 100%;
+  text-align: center;
+  }
+  
+h1 {
+    display: block;
+    font-size: 2em;
+  font-family: nudista-web, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+  color: #B10CFF; 
+    -webkit-margin-before: 0.67em;
+    -webkit-margin-after: 0.67em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+p{
+  font-family:'Inconsolata', monospace;
+  font-size:12px;
+}
+
+.title{
+  color:#B10CFF;
+  font-family:'Dosis', sans-serif;
+  font-size:40px;
+  font-weight:bold;
+  margin-top:0px;
+  text-transform: uppercase; 
+}  
+
+.title-commoning{
+  color:deeppink;
+  font-family: nudista-web, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+  font-size:13px;
+}  
+
+.subtitle-commoning{
+  color:deeppink;
+  font-family: nudista-web, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  font-size:12px;
+  line-height: 5px; 
+}  
+
+.subtitle-charact{
+  color:#FF7800;
+  font-family: nudista-web, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+  font-size:12px;
+  margin-top:20px; 
+}  
+
+.subtitle-access{
+  color:#16FC73;
+  font-family: nudista-web, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+  font-size:12px;
+  margin-top:20px; 
+}  
+.description{
+ font-family: nudista-web, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1em;
+  color: #B10CFF;
+}
+.intro-text{
+ font-family: nudista-web, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.2em;
+  color: #B10CFF;
+  line-height: 1.5; 
+}
+
+a{
+  font-weight: 600;
+  color: #B10CFF;
+}
+
+a:visited {
+font-weight: 600;
+color: #B10CFF;
+}
+
+a:hover{
+font-weight: 600;
+color: #FF7800;
+text-decoration-line: underline; 
+}
+a.link-intro {
+border-bottom: solid 1px; 
+}
+
+#map {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.people-picker {
+    font-family: 'Inconsolata', monospace;
+  color: deeppink; 
+}
+.action-picker {
+    font-family: 'Inconsolata', monospace;
+   color: deeppink; 
+}
+.space-picker {
+    font-family: 'Inconsolata', monospace;
+   color: deeppink; 
+}
+.time-picker {
+    font-family: 'Inconsolata', monospace;
+   color: deeppink; 
+}
+
+/* Customize the label (the container) */
+.container-orange {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-top: 5px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: 'Inconsolata', monospace;
+  color:#FF7800;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container-orange input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark-orange {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width:15px;
+  background-color: white;
+  border: 2px solid #FF7800;
+  
+}
+
+/* On mouse-over, add an orange background color */
+.container-orange:hover input ~ .checkmark-orange {
+  background-color: #FF7800;
+}
+
+/* When the checkbox is checked, add an orange background */
+.container-orange input:checked ~ .checkmark-orange {
+  background-color: #FF7800;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark-orange:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container-orange input:checked ~ .checkmark-orange:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container-orange .checkmark-orange:after {
+  left: 4px;
+  top: 0px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* Customize the label (the container) */
+.container-green{
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-top: 5px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 13px;
+  font-family: 'Inconsolata', monospace;
+  color:#16FC73;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container-green input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark-green {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width:15px;
+  background-color: white;
+  border: 2px solid #16FC73;
+  
+}
+
+/* On mouse-over, add an orange background color */
+.container-green:hover input ~ .checkmark-green {
+  background-color: #16FC73;
+}
+
+/* When the checkbox is checked, add an orange background */
+.container-green input:checked ~ .checkmark-green {
+  background-color: #16FC73;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark-green:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container-green input:checked ~ .checkmark-green:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container-green .checkmark-green:after {
+  left: 4px;
+  top: 0px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+  
+.leaflet-popup-content-wrapper {
+    padding: 1px;
+    text-align: left;
+    border-radius:0px;
+  }
+
+h7 {
+    display: block;
+    font-size: 13px;
+  font-family:'Inconsolata', monospace;
+  text-transform: uppercase;
+  font-weight: normal;
+  color: deeppink; 
+    -webkit-margin-before: 0.67em;
+    -webkit-margin-after: 0.67em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+.sidebar {
+  display: block;
+  background: #eee;
+  opacity: 0.9;
+  float: right;
+  padding: 10px;
+  margin: 15px; 
+  position: fixed; 
+  z-index: 1; 
+  top: 50px; 
+  right: 5px;
+  background-color: white; 
+  box-shadow: 1px 1px 3px #9e9e9e; 
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+.sidebar-footer {
+  margin-top: 75px;
+}
+
+.sidebar-feature-content {
+    font-size: 12px;
+    font-family: 'Inconsolata', monospace;
+    font-weight: bold;
+    color: black;
+    margin-top:0; 
+    display: block; 
+    width: 250px;
+   
+}
+
+.sidebar-content {
+  display:none;
+   width: 250px;
+}
+
+.sidebar-button {
+    border: none;
+    background: white;
+    right: 10px; 
+}
+
+
+h2 {
+    display: block;
+    font-size: 20px;
+    font-family: 'Dosis', monospace;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #B10CFF;
+    margin-top:0; 
+   
+}
+
+img {
+    width: 100%;
+}
+
+h3 {
+    display: block;
+    font-size: 16px;
+    font-family:'Inconsolata', monospace;
+    font-weight: bold;
+    color: deeppink;
+    text-align: center;
+    margin-top:0; 
+   
+}
+
+h4 {
+    display: block;
+    font-size: 12px;
+    font-family:'Inconsolata', monospace;
+    font-weight: bold;
+    color: deeppink;
+    text-align: center;
+    margin-top:0; 
+}
+
+
+h5 {
+    display: block;
+    font-size: 12px;
+    font-family:'Inconsolata', monospace;
+    font-weight: normal;
+    color: black; 
+    text-align: left;
+    margin-top:1px; 
+    line-height: 1.2;
+    margin-bottom: 0;
+}
+
+h6 {
+    display: block;
+    font-size: 12px;
+    font-family:'Inconsolata', monospace;
+    font-weight: bold;
+    color: deeppink;
+    text-align: left;
+    margin-top:2px; 
+    line-height: 1.2;
+}
+
+.panel-close, .panel-close:focus, .panel-close:hover, .panel-closeactive {
+    color: #FF7800;
+    text-decoration: none;
+}
+.panel-close {
+    display: inline-block;
+    float: right;
+    font-size: 32px;
+    line-height: 32px;
+    height: 32px;
+    width: 32px;
+    color: #B10CFF;
+}
+.btn-add, .panel-close {
+    font-family: 'Inconsolata', monospace;
+    font-weight: 400;
+}
+.btn-add div, .legend-help, .panel-close {
+    text-align: center;
+}
+
+.title-box {
+  width:300px;
+  float: left;
+  margin-left:20px;
+  margin-top: 30px;
+  border:0px;
+}
+
+.page-title {
+  color:#FF7800;
+  font-family:'Dosis', sans-serif;
+  font-size:20px;
+  font-weight:bold;
+  margin-top:20px;
+  text-transform: uppercase; 
+  width:500px;
+}
+
+.about-description{
+width:500px}
+
+.publication {
+position: absolute;
+left:600px; 
+margin-top:100px;
+}
+
+a:link {
+    background-color: transparent; 
+    text-decoration: none;
+}
+
+.legend-income {
+display: none;
+width: 60%;
+margin-top: 30px;
+}
+
+.legend-density{
+  display: none;
+  width: 60%;
+  margin-top: 30px;
+}
+
+.legend-access {
+  display: none;
+  width: 50%;
+  margin-top: 20px;
+}
+.panel-close{
+  display:none;
+  cursor: pointer;
+}
+
+.attributions{
+  color:black;
+  font-family:'Inconsolata', monospace;
+  font-size:12px;
+  margin-top:30px;
+  
+}
+
+.calendar{
+margin-top:30px;
+  width:75%;
+}
+
+.logo{
+  margin-top:0;
+  width:75%;
+}
+
+.left-sidebar-content{
+  margin-top:0; 
+}
+
+.download-buttons{
+margin-top:30px;
+}
+
+.howto-carnival-button{
+    background-color: white; 
+    border: 2px solid deeppink;
+    color: deeppink;
+    padding: 5px 7px;
+   display:block; 
+  font-family: 'Inconsolata', monospace;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.howto-garden-button{
+    background-color: white; 
+    border: 2px solid #16FC73;
+    color: #16FC73;
+    padding: 5px 7px;
+    display: block; 
+    font-family: 'Inconsolata', monospace;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+  margin-top:9px;
+}
+
+.howto-walk-button{
+   background-color: white; 
+    border: 2px solid #B10CFF;
+    color: #B10CFF;
+    padding: 5px 7px;
+    display: block; 
+    font-family: 'Inconsolata', monospace;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+  margin-top:9px;
+}
+
+.legend-people{
+display: block;
+margin-top:30px;
+width:60%;
+}
+
+.howto-image{
+position: absolute;
+text-align: center; 
+width: 50%; 
+}
+
+.english-button{
+  position: absolute;
+  right:100px; 
+}
+
+.license{
+  padding: 50px; 
+  width:20px;
+  margin-left:20px;
+  margin-top:50px;
+  border:20px;
+}
+
+

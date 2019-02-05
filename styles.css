@@ -116,12 +116,55 @@ z-index: 20000;
   z-index: 2000;
   height: 100%;
   }
-.page-intro-center{
+.faca-voce-mesmo{
   margin: 8em auto; 
+  z-index: 2000;
+  text-align: center;
+  }
+
+.secao-caixa{
+  margin: 0.6em auto; 
   z-index: 2000;
   height: 100%;
   text-align: center;
   }
+
+.como-usar {
+  z-index: 2000;
+  text-align: center;
+  color: #5194ff;
+  background-color: #FF7800;
+  }
+
+.full {
+    padding: 5rem 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.leadin-arrow-container {
+    width: 100%;
+}
+.leadin-arrow {
+    width: 80px;
+    height: 80px;
+    min-height: 80px;
+    min-width: 80px;
+    background-color: white;
+    opacity: 1;
+    margin: 0 auto;
+    margin-bottom: -40px;
+    margin-top: 60px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
   
 h1 {
     display: block;
@@ -136,6 +179,38 @@ h1 {
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
 }
+
+.white {
+    display: block;
+    margin: .67em 0;
+    font-size: 2em;
+  font-family: nudista-web, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+    color: white;
+    -webkit-margin-before: 0.67em;
+    -webkit-margin-after: 0.67em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+h2 {
+    display: block;
+    font-size: 1.6em;
+  font-family: nudista-web, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+  text-align: left; 
+  color: white; 
+    -webkit-margin-before: 0.67em;
+    -webkit-margin-after: 0.67em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+
 p{
   font-family:'Inconsolata', monospace;
   font-size:12px;
@@ -200,6 +275,17 @@ p{
   color: #B10CFF;
   line-height: 1.5; 
 }
+
+.intro-text-white{
+ font-family: nudista-web, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.2em;
+  color: white;
+  line-height: 1.5; 
+  text-align: center; 
+}
+
 
 a{
   font-weight: 600;
@@ -446,21 +532,15 @@ h7 {
 }
 
 
-h2 {
-    display: block;
-    font-size: 20px;
-    font-family: 'Dosis', monospace;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #B10CFF;
-    margin-top:0; 
-   
-}
 
 img {
     width: 100%;
 }
 
+.pag-grande
+{
+padding: 0.6em; 
+}
 h3 {
     display: block;
     font-size: 16px;
@@ -504,6 +584,17 @@ h6 {
     text-align: left;
     margin-top:2px; 
     line-height: 1.2;
+}
+
+h8 {
+    display: block;
+    font-size: 20px;
+    font-family: 'Dosis', monospace;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #B10CFF;
+    margin-top:0; 
+   
 }
 
 .panel-close, .panel-close:focus, .panel-close:hover, .panel-closeactive {

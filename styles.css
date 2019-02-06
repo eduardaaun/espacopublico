@@ -125,7 +125,6 @@ z-index: 20000;
 .secao-caixa{
   margin: 0.6em auto; 
   z-index: 2000;
-  height: 100%;
   text-align: center;
   }
 
@@ -135,9 +134,30 @@ z-index: 20000;
   color: #5194ff;
   background-color: #FF7800;
   }
+.cidadao {
+  z-index: 2000;
+  text-align: left;
+  color: white;
+  padding: 1em;
+  }
+
+.org-comun {
+  z-index: 2000;
+  text-align: left;
+  color: white;
+  padding: 0.7em;
+  }
+
+.governo {
+  z-index: 2000;
+  text-align: left;
+  color: white;
+  padding: 1em;
+  padding-bottom: 2em; 
+  }
 
 .full {
-    padding: 5rem 0;
+    padding-top: 5rem;
     margin-left: 0;
     margin-right: 0;
 }
@@ -164,6 +184,67 @@ z-index: 20000;
     -ms-transform: rotate(45deg);
     -o-transform: rotate(45deg);
     transform: rotate(45deg);
+}
+
+.container{
+  z-index: 3000;
+  text-align: left;
+  background-color: white;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top:100px;
+  padding-bottom:100px;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+.horta-urbana{
+  margin: 0.6em auto; 
+  z-index: 4000;
+   display: block; 
+}
+
+.container-como-organizar{
+   display: block;
+}
+
+.download-button {
+  text-align:left; 
+  width:1.8em; 
+  padding-top:.5em;  
+}
+
+.img-howto {
+ float: right; 
+width:35%; 
+z-index: 4000;
+margin: auto; 
+padding: 2em; 
+}
+
+.img-bloco{
+ float: left; 
+width:35%; 
+z-index: 4000;
+margin: auto; 
+padding: 2em; 
+}
+
+hr {
+    display: block;
+  width:100%; 
+    margin-before: 0.5em;
+    margin-after: 0.5em;
+    margin-start: auto;
+    margin-end: auto;
+    overflow: hidden;
+    border: 1.5px dashed #16fc73; 
 }
   
 h1 {
@@ -284,6 +365,42 @@ p{
   color: white;
   line-height: 1.5; 
   text-align: center; 
+}
+.como-organizar{
+  font-family : nudista-web, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size : 1em;
+  color : black;
+  text-align:left;
+  text-transform:uppercase;
+  margin-bottom:0px; 
+}
+
+.howto-comun{
+  font-family : nudista-web, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size : 2em;
+  color : white;
+  background-color:16fc73;
+  display:inline;
+  text-align:left;
+  text-transform:uppercase;
+  margin-top:0px; 
+}
+
+.howto-cult{
+  font-family : nudista-web, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size : 2em;
+  color : white;
+  background-color:fe008b;
+  display:inline;
+  text-align:left;
+  text-transform:uppercase;
+  margin-top:0px; 
 }
 
 

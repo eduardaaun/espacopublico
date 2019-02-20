@@ -116,7 +116,7 @@ z-index: 20000;
   z-index: 2000;
   height: 100%;
   }
-.faca-voce-mesmo{
+.o-que-fazer{
   margin: 8em auto; 
   z-index: 2000;
   text-align: center;
@@ -195,9 +195,49 @@ z-index: 20000;
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
+  padding-top:.2em;
+  padding-bottom:100px;
+}
+
+.legislacao{
+  z-index: 2000;
+  text-align: center;
+  color: #5194ff;
+  background-color: #FF7800;
+  padding-top: 50px; 
+  }
+
+.container-saiba-direitos{
+  margin: 0.6em auto; 
+  z-index: 2000;
+  text-align: center;
+}
+
+.faca-voce-mesmo{
+  z-index: 3000;
+  text-align: center;
+  margin: .8em auto; 
+  padding: 20px; 
+  }
+
+.container-carnaval{
+  z-index: 3000;
+  text-align: left;
+  background-color: white;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
   padding-top:100px;
   padding-bottom:100px;
 }
+
+.container-como-organizar-carnaval {
+  display: block;
+}
+
+
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -209,6 +249,11 @@ z-index: 20000;
   z-index: 4000;
    display: block; 
 }
+.bloco-carnaval{
+  margin: 0.6em auto; 
+  z-index: 4000;
+   display: block; 
+}
 
 .container-como-organizar{
    display: block;
@@ -216,7 +261,7 @@ z-index: 20000;
 
 .download-button {
   text-align:left; 
-  width:1.8em; 
+  width:4%; 
   padding-top:.5em;  
 }
 
@@ -236,6 +281,39 @@ margin: auto;
 padding: 2em; 
 }
 
+ /* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px; 
+}
+
+.row {
+  margin: 0.2em auto; 
+  z-index: 4000;
+   display: block; 
+}
+/* Clear floats */
+.row:after {
+  content: "";
+  display: table;
+   clear: both;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+  .column {
+    width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+} 
+
 hr {
     display: block;
   width:100%; 
@@ -244,7 +322,7 @@ hr {
     margin-start: auto;
     margin-end: auto;
     overflow: hidden;
-    border: 1.5px dashed #16fc73; 
+    border: .7px dashed #16fc73; 
 }
   
 h1 {
@@ -364,7 +442,7 @@ p{
   font-size: 1.2em;
   color: white;
   line-height: 1.5; 
-  text-align: center; 
+  text-align: left; 
 }
 .como-organizar{
   font-family : nudista-web, sans-serif;
@@ -381,9 +459,9 @@ p{
   font-family : nudista-web, sans-serif;
   font-weight: 600;
   font-style: normal;
-  font-size : 2em;
+  font-size : 1.4em;
   color : white;
-  background-color:16fc73;
+  background-color:#16fc73;
   display:inline;
   text-align:left;
   text-transform:uppercase;
@@ -394,15 +472,50 @@ p{
   font-family : nudista-web, sans-serif;
   font-weight: 600;
   font-style: normal;
-  font-size : 2em;
+  font-size : 1.4em;
   color : white;
-  background-color:fe008b;
+  background-color:#fe008b;
   display:inline;
   text-align:left;
   text-transform:uppercase;
   margin-top:0px; 
 }
 
+.howto-urb{
+  font-family : nudista-web, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size : 1.4em;
+  color : white;
+  background-color:#B10CFF;
+  display:inline;
+  text-align:left;
+  text-transform:uppercase;
+  margin-top:0px; 
+}
+
+.howto-act{
+  font-family : nudista-web, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size : 1.4em;
+  color : white;
+  background-color:#FF7800;
+  display:inline;
+  text-align:left;
+  text-transform:uppercase;
+  margin-top:0px; 
+}
+
+.text-sm-white{
+ font-family: nudista-web, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1em;
+  color: white;
+  line-height: 1.5; 
+  text-align: left; 
+}
 
 a{
   font-weight: 600;
@@ -423,6 +536,14 @@ a.link-intro {
 border-bottom: solid 1px; 
 }
 
+a.link-white{
+border-bottom: solid 1px; 
+  color: white; 
+}
+a.link-white:hover{
+border-bottom: solid 1px; 
+  color: black; 
+}
 #map {
   position: absolute;
   height: 100%;
@@ -658,6 +779,14 @@ img {
 {
 padding: 0.6em; 
 }
+
+.img-column{
+display: block;
+max-width: 100%;
+height: auto;
+margin: 0 auto;
+}
+
 h3 {
     display: block;
     font-size: 16px;

@@ -166,6 +166,11 @@ z-index: 20000;
     margin-right: -15px;
 }
 
+.with-btm-margin {
+    margin-top: 0;
+    margin-bottom: 48px;
+}
+
 .leadin-arrow-container {
     width: 100%;
 }
@@ -534,6 +539,10 @@ text-decoration-line: underline;
 }
 a.link-intro {
 border-bottom: solid 1px; 
+}
+
+a.link-howto{
+  color: white; 
 }
 
 a.link-white{

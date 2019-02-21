@@ -293,6 +293,12 @@ padding: 2em;
   padding: 10px; 
 }
 
+.column-3 {
+  float: left;
+  width: 33.3%;
+  padding: 10px; 
+}
+
 .row {
   margin: 0.2em auto; 
   z-index: 4000;
@@ -315,6 +321,20 @@ padding: 2em;
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
   .column {
+    width: 100%;
+  }
+} 
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+  .column-3{
+    width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column-3 {
     width: 100%;
   }
 } 
@@ -344,6 +364,10 @@ h1 {
     -webkit-margin-end: 0px;
 }
 
+.lower-case {
+    text-transform: none;
+}
+
 .white {
     display: block;
     margin: .67em 0;
@@ -358,6 +382,8 @@ h1 {
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
 }
+
+
 
 h2 {
     display: block;

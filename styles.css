@@ -122,7 +122,21 @@ z-index: 20000;
   text-align: center;
   }
 
+.o-problema{
+  margin: 8em auto; 
+  z-index: 2000;
+  text-align: center;
+  margin-bottom: 40px;
+  }
+
+
 .secao-caixa{
+  margin: 0.6em auto; 
+  z-index: 2000;
+  text-align: center;
+  }
+
+.problem-explain{
   margin: 0.6em auto; 
   z-index: 2000;
   text-align: center;
@@ -204,6 +218,30 @@ z-index: 20000;
   padding-bottom:100px;
 }
 
+.container-problema{
+  z-index: 3000;
+  text-align: center;
+  background-color: white;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top:.2em;
+}
+
+container-problema-2{
+  z-index: 3000;
+  text-align: center;
+  background-color: white;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top:.2em;
+}
+
 .legislacao{
   z-index: 2000;
   text-align: center;
@@ -264,6 +302,18 @@ z-index: 20000;
    display: block;
 }
 
+.container-img-back{
+  position: relative;
+  text-align: center; 
+}
+
+.container-text-img{
+  position: absolute; 
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center; 
+}
+
 .download-button {
   text-align:left; 
   width:4%; 
@@ -286,6 +336,7 @@ margin: auto;
 padding: 2em; 
 }
 
+
  /* Create four equal columns that floats next to each other */
 .column {
   float: left;
@@ -296,6 +347,12 @@ padding: 2em;
 .column-3 {
   float: left;
   width: 33.3%;
+  padding: 10px; 
+}
+
+.column-4 {
+  float: left;
+  width: 25%;
   padding: 10px; 
 }
 
@@ -338,6 +395,13 @@ padding: 2em;
     width: 100%;
   }
 } 
+
+.purple-border{
+  border-width: 5px;
+    border-style: solid;
+    border-color: #B10CFF;
+    padding: 10px;
+}
 
 hr {
     display: block;
@@ -546,6 +610,42 @@ p{
   color: white;
   line-height: 1.5; 
   text-align: left; 
+}
+
+.texto-sm-black{
+ font-family: nudista-web, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1em;
+  color: black;
+  line-height: 1.5; 
+  text-align: left; 
+}
+
+.texto-problema-gr{
+ font-family: nudista-web, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.3em;
+  color: #B10CFF;
+  line-height: 1.5; 
+  text-align: center; 
+}
+
+.texto-problema{
+ font-family: nudista-web, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1em;
+  color: #B10CFF;
+  line-height: 1.5; 
+  text-align: left; 
+}
+
+
+.with-highlight {
+    background-color: #B10CFF;
+    display: inline;
 }
 
 a{
@@ -810,9 +910,9 @@ img {
     width: 100%;
 }
 
-.pag-grande
-{
-padding: 0.6em; 
+.pag-grande{
+padding: 3em; 
+width: 50%;
 }
 
 .img-column{
@@ -820,6 +920,25 @@ display: block;
 max-width: 100%;
 height: auto;
 margin: 0 auto;
+}
+
+.center{
+display: block;
+margin-left: auto;
+margin-right: auto;
+max-width: 90%;
+}
+
+.responsive {
+  width: 100%;
+  height: auto;
+  padding: 0; 
+}
+
+.img-back{
+  position: absolute; 
+  text-align: center;
+  margin: auto; 
 }
 
 h3 {

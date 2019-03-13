@@ -66,8 +66,8 @@ background-color: #B10CFF;
 /*  specific CSS for your menu*/
 div.nav-bar li.selected a { 
 background-color: #B10CFF;
-  border-color: #B10CFF;
- color: white;
+border-color: #B10CFF;
+color: white;
 } 
 
 .navbar-logo {
@@ -118,6 +118,7 @@ z-index: 20000;
   }
 .o-que-fazer{
   margin: 8em auto; 
+  margin-bottom: 4em;
   z-index: 2000;
   text-align: center;
   }
@@ -185,6 +186,11 @@ z-index: 20000;
     margin-bottom: 48px;
 }
 
+.row-text {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
 .leadin-arrow-container {
     width: 100%;
 }
@@ -230,7 +236,7 @@ z-index: 20000;
   padding-top:.2em;
 }
 
-container-problema-2{
+.container-problema-2{
   z-index: 3000;
   text-align: center;
   background-color: white;
@@ -239,14 +245,22 @@ container-problema-2{
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
-  padding-top:.2em;
+  padding-top: 60px;
+  padding-bottom: 15px;
+}
+.purple {
+  background-color: #B10CFF;
+}
+
+.background-green {
+  background-color: #16fc73;
 }
 
 .legislacao{
   z-index: 2000;
   text-align: center;
   color: #5194ff;
-  background-color: #FF7800;
+  background-color: #fe008b;
   padding-top: 50px; 
   }
 
@@ -262,6 +276,12 @@ container-problema-2{
   margin: .8em auto; 
   padding: 20px; 
   }
+
+.espaco-publico-titulo{
+  margin: 8em auto; 
+  z-index: 2000;
+  text-align: center;
+}
 
 .container-carnaval{
   z-index: 3000;
@@ -304,7 +324,8 @@ container-problema-2{
 
 .container-img-back{
   position: relative;
-  text-align: center; 
+  text-align: center;
+  top:50px; 
 }
 
 .container-text-img{
@@ -356,6 +377,11 @@ padding: 2em;
   padding: 10px; 
 }
 
+.menor {
+  padding-right:20px;
+  padding-left:20px; 
+}
+
 .row {
   margin: 0.2em auto; 
   z-index: 4000;
@@ -397,9 +423,23 @@ padding: 2em;
 } 
 
 .purple-border{
-  border-width: 5px;
+  border-width: 4px;
     border-style: solid;
     border-color: #B10CFF;
+    padding: 10px;
+}
+
+.black-border{
+  border-width: 4px;
+    border-style: solid;
+    border-color: #000000;
+    padding: 10px;
+}
+
+.white-border{
+  border-width: 4px;
+    border-style: solid;
+    border-color: #ffffff;
     padding: 10px;
 }
 
@@ -446,7 +486,9 @@ h1 {
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
 }
-
+ .text-center{
+    text-align: center; 
+}
 
 
 h2 {
@@ -463,6 +505,7 @@ h2 {
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
 }
+
 
 
 p{
@@ -627,9 +670,11 @@ p{
   font-weight: 600;
   font-style: normal;
   font-size: 1.3em;
-  color: #B10CFF;
-  line-height: 1.5; 
+  color: #ffffff;
+  line-height: 1.2; 
   text-align: center; 
+  margin-top:5px; 
+  margin-bottom:5px; 
 }
 
 .texto-problema{
@@ -637,15 +682,36 @@ p{
   font-weight: 400;
   font-style: normal;
   font-size: 1em;
-  color: #B10CFF;
+  color: #ffffff;
   line-height: 1.5; 
   text-align: left; 
 }
 
+.caixa-alta {
+ font-family: nudista-web, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.9em;
+  color: #ffffff;
+  line-height: 1.5; 
+  text-align: center;
+  text-transform: uppercase;
+}
+
 
 .with-highlight {
-    background-color: #B10CFF;
+    background-color: #16fc73;
     display: inline;
+}
+
+.number-center{
+ font-family: nudista-web, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.5em;
+  color: black;
+  line-height: 1.5; 
+  text-align: center; 
 }
 
 a{
@@ -941,16 +1007,28 @@ max-width: 90%;
   margin: auto; 
 }
 
-h3 {
-    display: block;
-    font-size: 16px;
-    font-family:'Inconsolata', monospace;
-    font-weight: bold;
-    color: deeppink;
-    text-align: center;
-    margin-top:0; 
-   
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .img-back{
+    display:none; 
+  }
+} 
+
+.faca-voce-mesmo{
+  width: 70%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .faca-voce-mesmo{
+    width: 100%;
+  }
+} 
+
 
 h4 {
     display: block;
@@ -993,6 +1071,17 @@ h8 {
     text-transform: uppercase;
     font-weight: bold;
     color: #B10CFF;
+    margin-top:0; 
+   
+}
+
+h9 {
+    display: block;
+    font-size: 16px;
+    font-family:'Inconsolata', monospace;
+    font-weight: bold;
+    color: deeppink;
+    text-align: center;
     margin-top:0; 
    
 }

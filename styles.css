@@ -141,6 +141,7 @@ z-index: 20000;
   margin: 0.6em auto; 
   z-index: 2000;
   text-align: center;
+  min-height:800px; 
   }
 
 .como-usar {
@@ -186,6 +187,10 @@ z-index: 20000;
     margin-bottom: 48px;
 }
 
+.top-margin{
+    padding-top: 100px;
+}
+
 .row-text {
     margin-left: -15px;
     margin-right: -15px;
@@ -220,7 +225,7 @@ z-index: 20000;
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
-  padding-top:.2em;
+  padding-top:2em;
   padding-bottom:100px;
 }
 
@@ -253,14 +258,14 @@ z-index: 20000;
 }
 
 .background-green {
-  background-color: #16fc73;
+  background-color: #daafef;
 }
 
 .legislacao{
   z-index: 2000;
   text-align: center;
   color: #5194ff;
-  background-color: #fe008b;
+  background-color: #FF7800;
   padding-top: 50px; 
   }
 
@@ -441,6 +446,11 @@ padding: 2em;
     border-style: solid;
     border-color: #ffffff;
     padding: 10px;
+}
+
+.white-box{
+  background-color: #ffff9e; 
+  padding: 15px; 
 }
 
 hr {
@@ -689,7 +699,7 @@ p{
 
 .caixa-alta {
  font-family: nudista-web, sans-serif;
-  font-weight: 400;
+  font-weight: 600;
   font-style: normal;
   font-size: 0.9em;
   color: #ffffff;
@@ -698,6 +708,20 @@ p{
   text-transform: uppercase;
 }
 
+.law-text{
+ font-family:'Inconsolata', monospace;
+color: black;
+font-size: 1em;
+text-align: left;
+}
+
+.law-text-title{
+ font-family:'Inconsolata', monospace;
+color: black;
+font-size: 1.1em;
+text-align: left;
+text-transform: uppercase;
+}
 
 .with-highlight {
     background-color: #16fc73;
@@ -713,6 +737,21 @@ p{
   line-height: 1.5; 
   text-align: center; 
 }
+
+.texto-ep-titulo{
+  font-family : nudista-web, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size : 1.4em;
+  color : black;
+  background-color:white;
+  display:inline;
+  text-align:left;
+  text-transform:uppercase;
+  margin-top:0px; 
+}
+
+
 
 a{
   font-weight: 600;
@@ -744,6 +783,15 @@ border-bottom: solid 1px;
 a.link-white:hover{
 border-bottom: solid 1px; 
   color: black; 
+}
+
+a.link-orange{
+border-bottom: solid 1px; 
+color: black;  
+}
+a.link-orange:hover{
+border-bottom: solid 1px; 
+  color: #ff7800; 
 }
 #map {
   position: absolute;
@@ -987,6 +1035,14 @@ max-width: 100%;
 height: auto;
 margin: 0 auto;
 }
+
+.img-column-center{
+max-width: 100%;
+height: auto;
+margin: 0 auto;
+vertical-align: middle;
+}
+
 
 .center{
 display: block;

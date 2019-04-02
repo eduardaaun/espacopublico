@@ -512,4 +512,3 @@ panelClose.addEventListener('click', function () {
   sidebarcontent.style.display = 'none';
   panelClose.style.display = 'none';
 })
-

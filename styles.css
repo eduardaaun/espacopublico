@@ -147,9 +147,9 @@ z-index: 20000;
 .como-usar {
   z-index: 2000;
   text-align: center;
-  color: #5194ff;
-  background-color: #FF7800;
+  background-color: #B10CFF;
   }
+
 .cidadao {
   z-index: 2000;
   text-align: left;
@@ -229,6 +229,19 @@ z-index: 20000;
   padding-bottom:100px;
 }
 
+.container-brasilia{
+  z-index: 3000;
+  text-align: left;
+  background-color: white;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top:5em;
+  padding-bottom:100px;
+}
+
 .container-problema{
   z-index: 3000;
   text-align: center;
@@ -264,8 +277,7 @@ z-index: 20000;
 .legislacao{
   z-index: 2000;
   text-align: center;
-  color: #5194ff;
-  background-color: #FF7800;
+  background-color: #B10CFF;
   padding-top: 50px; 
   }
 

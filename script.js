@@ -3,7 +3,9 @@
 
 var map = L.map('map', {
   zoomControl: false
-}).setView([-15.794236, -47.883568,], 11);
+}).setView([-15.801504,-47.992744,], 12);
+
+
 
 L.control.zoom({ position: 'bottomright' }).addTo(map);
 
@@ -283,7 +285,10 @@ neighborhoodSearch.addEventListener('keyup', function (e) {
     // Else use the search text in an SQL query that will filter to names with that text in it
     casestudiesSource.setQuery("SELECT * FROM case_studies_edited WHERE ra ILIKE '%" + searchText + "%'");
   }
-   
+
+  // Zoom to the latitude and longitude of the clicked feature
+  map.setView([e.latLng.lat, e.latLng.lng], 15);
+
   
   // Sometimes it helps to log messages, here we log the search text. You can see this if you open developer tools and look at the console.
   console.log('Input changed to "' + searchText + '"');

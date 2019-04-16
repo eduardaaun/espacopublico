@@ -8,7 +8,7 @@ var map = L.map('map', {
 L.control.zoom({ position: 'bottomright' }).addTo(map);
 
 // Add base layer
-L.tileLayer('https://api.mapbox.com/styles/v1/eduardaaun/cje7b2cg93v4x2so2t3pnsvog/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZWR1YXJkYWF1biIsImEiOiJjajI1OWQ4b3kwMDhtMzJsZWdmOHhocWFpIn0.dM0AOmAI9UmpTcD6J8jNKw', {
+L.tileLayer('https://api.mapbox.com/styles/v1/eduardaaun/cjucu3xpg12mu1fntgbm3rihq/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZWR1YXJkYWF1biIsImEiOiJjajI1OWQ4b3kwMDhtMzJsZWdmOHhocWFpIn0.dM0AOmAI9UmpTcD6J8jNKw', {
   maxZoom: 18
 }).addTo(map);
 
@@ -25,7 +25,7 @@ var casestudiesSource = new carto.source.SQL('SELECT * FROM case_studies_edited'
 var casestudiesStyle = new carto.style.CartoCSS(`
   #layer {
   marker-width: 15;
-  marker-fill: ramp([people], (#ed208a, #16fc73, #b10cff, #ff7800), ("cultural producer", "community organization", "urban experts", "activists"), "=");
+  marker-fill: #b10cff;
   marker-fill-opacity: .6;
   marker-allow-overlap: true;
   marker-line-width: 1;
@@ -36,12 +36,12 @@ var casestudiesStyle = new carto.style.CartoCSS(`
 
 // Add style to the data
 var casestudiesLayer = new carto.layer.Layer(casestudiesSource, casestudiesStyle, {
-  featureClickColumns: ['cartodb_id', 'atividade','activity','organizado', 'name', 'descriptio','_when', 'local','foto','foto_2', 'foto_3','contact',],
-  featureOverColumns: ['cartodb_id', 'atividade','activity','organizado', 'name', 'descriptio','_when', 'local','foto','foto_2', 'foto_3','contact',]
+  featureClickColumns: ['cartodb_id', 'atividade','activity','organizado', 'name', 'descriptio','quando', 'local','foto','foto_2', 'foto_3','contact',],
+  featureOverColumns: ['cartodb_id', 'atividade','activity','organizado', 'name', 'descriptio','quando', 'local','foto','foto_2', 'foto_3','contact',]
 });
 
 casestudiesLayer.on('featureClick', function (event) {
-   var content = '<h7>' + event.data['name'] + '</h7>'
+   var content = '<h7>' + event.data['atividade'] + '</h7>'
   content += '<h4>' + event.data['activity'] + ' <h4>';
   popup.setContent(content);
   console.log('featureClick');
@@ -53,8 +53,7 @@ casestudiesLayer.on('featureClicked', function (event) {
   // the clicked feature.
   //
   // I will add the content line-by-line here to make it a little easier to read.
-  var content = '<h7>' + event.data['name'] + '</h7>'
-  content += '<h4>' + event.data['atividade'] + ' <h4>';
+  var content = '<h7>' + event.data['atividade'] + '</h7>'
   popup.setContent(content);
   
   var sidebar = document.querySelector('.sidebar-content');
@@ -84,13 +83,13 @@ casestudiesLayer.on('featureClicked', function (event) {
   content += '<h5>Organizado por: ' + event.data['organizado'] + ' <h5>';
   content += '<div>Onde: ' + event.data['local'] + ' </div>';
   
-  if (event.data ['_when'] == null) {
+  if (event.data ['quando'] == null) {
     content += '<div></div>';
   }
   else {
-  content += '<div>Quando: ' + event.data['_when'] + ' </div>';
+  content += '<div>Quando: ' + event.data['quando'] + ' </div>';
   }
-  content += '<a href="' + event.data['contact'] + '" target="_blank"> Mais informação </a>';
+  content += '<a class="maisinfo" href="' + event.data['contact'] + '" target="_blank"> Mais informação </a>';
   
   // Then put the HTML inside the sidebar. Once you click on a feature, the HTML
   // for the sidebar will change.
@@ -114,7 +113,7 @@ var spacesSource = new carto.source.SQL('SELECT * FROM espacos');
 // Create style for the data
 var spacesStyle = new carto.style.CartoCSS(`
 #layer {
-  polygon-fill: black;
+  polygon-fill: #16fc73;
   polygon-opacity: .7;
   }
 `);
@@ -132,8 +131,7 @@ spacesLayer.on('featureClicked', function (event) {
   // the clicked feature.
   //
   // I will add the content line-by-line here to make it a little easier to read.
-  var content = '<h7>' + event.data['name'] + '</h7>'
-    content += '<div>' + event.data['tipo'] + ' </div>';
+  var content = '<h9>' + event.data['tipo'] + '</h9>';
   popup.setContent(content);
   
   // Place the popup and open it
@@ -185,6 +183,7 @@ var densityStyle = new carto.style.CartoCSS(`
 // Add style to the data
 var densityLayer = new carto.layer.Layer(densitySource, densityStyle);
 densityLayer.hide();
+
 
 /*
  * Begin layer five - bus stops
@@ -267,35 +266,28 @@ client.addLayers([densityLayer, incomeLayer, busLayer, bikeLayer, subwayLayer, s
 client.getLeafletLayer().addTo(map);
 
 
-/*
- * Listen for changes on the layer picker - people picker 
- */
+// Step 1: Find the search input by class. If you are using a different class, change this.
+var neighborhoodSearch = document.querySelector('.neighborhood-search');
 
-// Step 1: Find the dropdown by class. If you are using a different class, change this.
-var peoplePicker = document.querySelector('.people-picker');
-
-// Step 2: Add an event listener to the dropdown. We will run some code whenever the dropdown changes.
-peoplePicker.addEventListener('change', function (e) {
-  // The value of the dropdown is in e.target.value when it changes
-  var people = e.target.value;
+// Step 2: Add an event listener to the input. We will run some code whenever the text changes.
+neighborhoodSearch.addEventListener('keyup', function (e) {
+  // The value of the input is in e.target.value when it changes
+  var searchText = e.target.value;
   
   // Step 3: Decide on the SQL query to use and set it on the datasource
-  if (people === 'all') {
-    // If the value is "all" then we show all of the features, unfiltered
+  if (searchText === '') {
+    // If the search text is empty, then we show all of the features, unfiltered
     casestudiesSource.setQuery("SELECT * FROM case_studies_edited");
   }
-  else if (people === 'none'){
-    casestudiesLayer.hide();
-  }
   else {
- casestudiesSource.setQuery("SELECT * FROM case_studies_edited WHERE people = '" + people + "'");
- casestudiesLayer.show();
+    // Else use the search text in an SQL query that will filter to names with that text in it
+    casestudiesSource.setQuery("SELECT * FROM case_studies_edited WHERE ra ILIKE '%" + searchText + "%'");
   }
+   
   
-  // Sometimes it helps to log messages, here we log the lifestage. You can see this if you open developer tools and look at the console.
-  console.log('Dropdown changed to "' + people+ '"');
+  // Sometimes it helps to log messages, here we log the search text. You can see this if you open developer tools and look at the console.
+  console.log('Input changed to "' + searchText + '"');
 });
-
 
 /*
  * Listen for changes on the layer picker - action picker 
@@ -512,3 +504,20 @@ panelClose.addEventListener('click', function () {
   sidebarcontent.style.display = 'none';
   panelClose.style.display = 'none';
 })
+
+function myFunction() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myBtn");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Read more"; 
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Read less"; 
+    moreText.style.display = "inline";
+  }
+}
+

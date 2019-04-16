@@ -29,12 +29,14 @@ html, body {
   text-align: center;
 }
 
+
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
+
 
 li {
   float: right;
@@ -70,6 +72,8 @@ border-color: #B10CFF;
 color: white;
 } 
 
+
+
 .navbar-logo {
   float: left;
     vertical-align: top;
@@ -92,19 +96,29 @@ color: white;
 }
 
 .left-sidebar{
-    height: 100%;
+    height: 100vh;
     width: 20%;
+  min-width:250px; 
     position: absolute;
     opacity: 0.9;
     left: 1px;
+    top: 0;
     margin-top: 0px;
     display: inline-block;
     background-color: white;
     padding: 20px;
     font-size: 1.6em;
-    z-index: 3;
+    z-index: 20000;
+}
 
-.layer-picker:
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .left-sidebar {
+    width: 50%;
+  }
+} 
+
+.layer-picker{
 position: absolute;
 right: 15px;
 top: 15px;
@@ -475,6 +489,15 @@ hr {
     overflow: hidden;
     border: .7px dashed #16fc73; 
 }
+
+.neighborhood-search{
+  font-family: 'Inconsolata', monospace;
+  color:deeppink;
+}
+.text{
+  font-family: 'Inconsolata', monospace;
+  color:deeppink;
+}
   
 h1 {
     display: block;
@@ -528,6 +551,15 @@ h2 {
     -webkit-margin-end: 0px;
 }
 
+h3{
+  color:#b10cff;
+  font-family: nudista-web, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+  text-align:center;
+  font-size:13px;
+}  
 
 
 p{
@@ -545,7 +577,7 @@ p{
 }  
 
 .title-commoning{
-  color:deeppink;
+  color:#b10cff;
   font-family: nudista-web, sans-serif;
     font-weight: 600;
     font-style: normal;
@@ -554,12 +586,14 @@ p{
 }  
 
 .subtitle-commoning{
-  color:deeppink;
+  color:#b10cff;
   font-family: nudista-web, sans-serif;
     font-weight: 400;
     font-style: normal;
-  font-size:12px;
+  font-size:0.5em;
   line-height: 5px; 
+  margin-bottom: 5px;
+  margin-top: 20px;
 }  
 
 .subtitle-charact{
@@ -572,7 +606,7 @@ p{
 }  
 
 .subtitle-access{
-  color:#16FC73;
+  color:#fe008b;
   font-family: nudista-web, sans-serif;
     font-weight: 600;
     font-style: normal;
@@ -805,6 +839,12 @@ a.link-orange:hover{
 border-bottom: solid 1px; 
   color: #ff7800; 
 }
+
+a.maisinfo{
+  font-size:1.1em; 
+  border-bottom: solid 1px; 
+}
+
 #map {
   position: absolute;
   height: 100%;
@@ -812,19 +852,19 @@ border-bottom: solid 1px;
 }
 .people-picker {
     font-family: 'Inconsolata', monospace;
-  color: deeppink; 
+  color: #b10cff; 
 }
 .action-picker {
     font-family: 'Inconsolata', monospace;
-   color: deeppink; 
+   color: #b10cff; 
 }
 .space-picker {
     font-family: 'Inconsolata', monospace;
-   color: deeppink; 
+   color: #b10cff; 
 }
 .time-picker {
     font-family: 'Inconsolata', monospace;
-   color: deeppink; 
+   color: #b10cff; 
 }
 
 /* Customize the label (the container) */
@@ -835,8 +875,10 @@ border-bottom: solid 1px;
   margin-top: 5px;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size: 13px;
-  font-family: 'Inconsolata', monospace;
+  font-family: nudista-web, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  font-size:0.5em;
   color:#FF7800;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -906,9 +948,11 @@ border-bottom: solid 1px;
   margin-top: 5px;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size: 13px;
-  font-family: 'Inconsolata', monospace;
-  color:#16FC73;
+  font-family: nudista-web, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  font-size:0.5em;
+  color:deeppink;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -930,18 +974,18 @@ border-bottom: solid 1px;
   height: 15px;
   width:15px;
   background-color: white;
-  border: 2px solid #16FC73;
+  border: 2px solid #fe008b;
   
 }
 
 /* On mouse-over, add an orange background color */
 .container-green:hover input ~ .checkmark-green {
-  background-color: #16FC73;
+  background-color: #fe008b;
 }
 
 /* When the checkbox is checked, add an orange background */
 .container-green input:checked ~ .checkmark-green {
-  background-color: #16FC73;
+  background-color: #fe008b;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -979,10 +1023,11 @@ border-bottom: solid 1px;
 h7 {
     display: block;
     font-size: 13px;
-  font-family:'Inconsolata', monospace;
+  font-family: nudista-web, sans-serif;
+    font-weight: 600;
+    font-style: normal;
   text-transform: uppercase;
-  font-weight: normal;
-  color: deeppink; 
+  color: #b10cff; 
     -webkit-margin-before: 0.67em;
     -webkit-margin-after: 0.67em;
     -webkit-margin-start: 0px;
@@ -1101,23 +1146,26 @@ max-width: 90%;
 h4 {
     display: block;
     font-size: 12px;
-    font-family:'Inconsolata', monospace;
-    font-weight: bold;
-    color: deeppink;
+    font-family:nudista-web, sans-serif;
+  font-weight: 400;
+    font-style: normal;
+    color: #b10cff;
     text-align: center;
     margin-top:0; 
+      line-height: 2em;
 }
 
 
 h5 {
     display: block;
     font-size: 12px;
-    font-family:'Inconsolata', monospace;
-    font-weight: normal;
-    color: black; 
+    font-family:nudista-web, sans-serif;
+  font-weight: 400;
+    font-style: normal;
+ color: #b10cff;
     text-align: left;
     margin-top:1px; 
-    line-height: 1.2;
+    line-height: 1.5;
     margin-bottom: 0;
 }
 
@@ -1145,10 +1193,12 @@ h8 {
 
 h9 {
     display: block;
-    font-size: 16px;
-    font-family:'Inconsolata', monospace;
-    font-weight: bold;
-    color: deeppink;
+    font-size: 13px;
+  font-family: nudista-web, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+  text-transform: uppercase;
+    color: #16fc73;
     text-align: center;
     margin-top:0; 
    
@@ -1317,3 +1367,5 @@ width: 50%;
   margin-top:50px;
   border:20px;
 }
+
+#more {display: none;}

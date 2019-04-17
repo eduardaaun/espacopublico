@@ -151,8 +151,8 @@ var incomeSource = new carto.source.SQL('SELECT * FROM renda_raca_brasilia_1');
 // Create style for the data
 var incomeStyle = new carto.style.CartoCSS(`
  #layer {
-  polygon-fill: ramp([rend_rnm], (#b25400, #e46c00, #ff7800, #ff8b24, #ffa554), quantiles);
-  polygon-opacity: 0.8;
+  polygon-fill: ramp([rend_rnm], (#ffd9b8, #ff9846, #e66d00, #c25c00, #a04c01), jenks);
+  polygon-opacity: 0.7;
 }
 #layer::outline {
   line-width: 1;
@@ -173,7 +173,7 @@ var densitySource = new carto.source.SQL('SELECT * FROM density_eduarda');
 // Create style for the data
 var densityStyle = new carto.style.CartoCSS(`
 #layer {
-  polygon-fill: ramp([density], (#ffd4af, #ffa24f, #ff7a04, #ff7800, #ab5100), jenks);
+  polygon-fill: ramp([density], (#ffd9b8, #ff9846, #e66d00, #c25c00, #a04c01), jenks);
   polygon-opacity: 0.8;
 }
 #layer::outline {
@@ -186,6 +186,29 @@ var densityStyle = new carto.style.CartoCSS(`
 var densityLayer = new carto.layer.Layer(densitySource, densityStyle);
 densityLayer.hide();
 
+/*
+ * Begin layer - Race
+ */
+
+// Initialze source data
+var raceSource = new carto.source.SQL('SELECT * FROM renda_raca_brasilia_1');
+
+// Create style for the data
+var raceStyle = new carto.style.CartoCSS(`
+#layer {
+  polygon-fill: ramp([perblack], (#ffd9b8, #ff9846, #e66d00, #c25c00, #a04c01), jenks);
+  polygon-opacity: 0.8;
+}
+#layer::outline {
+  line-width: 0;
+  line-color: #FFFFFF;
+  line-opacity: 0.5;
+}
+`);
+// Add style to the data
+var raceLayer = new carto.layer.Layer(raceSource, raceStyle);
+raceLayer.hide();
+
 
 /*
  * Begin layer five - bus stops
@@ -197,17 +220,17 @@ var busSource = new carto.source.SQL('SELECT * FROM pontos_parada')
 // Create style for the data
 var busStyle = new carto.style.CartoCSS(`
  #layer {
-  marker-width: 10;
-  marker-fill: #16fc73;
+  marker-width: 3;
+  marker-fill: #fe008b;
   marker-fill-opacity: 1;
-  marker-file: url('https://s3.amazonaws.com/com.cartodb.users-assets.production/maki-icons/bus-18.svg');
+  marker-file: url('https://s3.amazonaws.com/com.cartodb.users-assets.production/maki-icons/square-18.svg');
   marker-allow-overlap: true;
-  marker-line-width: 1;
+  marker-line-width: 0;
   marker-line-opacity: 0;
  [zoom >= 13] {
     marker-fill-opacity: 1;
-    marker-line-opacity: 1;
-    marker-width: 20;
+    marker-line-opacity: 0;
+    marker-width: 10;
 }
 }
 `);
@@ -226,7 +249,7 @@ var bikeSource = new carto.source.SQL('SELECT * FROM bikeshare_bsb')
 var bikeStyle = new carto.style.CartoCSS(`
   #layer {
   marker-width: 10;
-  marker-fill: #16fc73;
+  marker-fill: #b91a66;
   marker-fill-opacity: 1;
   marker-file: url('https://s3.amazonaws.com/com.cartodb.users-assets.production/maki-icons/bicycle-18.svg');
   marker-allow-overlap: true;
@@ -254,17 +277,36 @@ var subwaySource = new carto.source.SQL('SELECT * FROM metroline')
 var subwayStyle = new carto.style.CartoCSS(`
  #layer {
   line-width: 3px;
-  line-color: #16fc73;
-  line-opacity: 0.5;
+  line-color: #961863;
+  line-opacity: 0.8;
+  line-dasharray: 5, 5;
 }
 `);
 // Add style to the data
 var subwayLayer = new carto.layer.Layer(subwaySource, subwayStyle);
 subwayLayer.hide();
 
+// Initialze source data - layer equipamentos de lazer 
+var equipamentolazerSource = new carto.source.SQL('SELECT * FROM esporte_lazer')
+
+// Create style for the data
+var equipamentolazerStyle = new carto.style.CartoCSS(`
+ #layer {
+  polygon-fill: ramp([agg_value], (#e1cad8, #dc93be, #d962a8, #ec47a8, #fe008b), quantiles);
+}
+#layer::outline {
+  line-width: 0;
+  line-color: #FFFFFF;
+  line-opacity: 1;
+}
+`);
+// Add style to the data
+var equipamentolazerLayer = new carto.layer.Layer(equipamentolazerSource, equipamentolazerStyle);
+equipamentolazerLayer.hide();
+
 
 // Add the data to the map as two layers. Order matters here--first one goes on the bottom
-client.addLayers([densityLayer, incomeLayer, busLayer, bikeLayer, subwayLayer, spacesLayer, casestudiesLayer]);
+client.addLayers([densityLayer, incomeLayer, raceLayer, busLayer, bikeLayer, subwayLayer, spacesLayer, casestudiesLayer]);
 client.getLeafletLayer().addTo(map);
 
 
@@ -424,6 +466,20 @@ incomeCheckbox.addEventListener('click', function () {
     incomeLegend.style.display = 'none';
   }
 });
+
+// When the race button is clicked, show or hide the layer
+var raceCheckbox = document.querySelector('.race-checkbox');
+var raceLegend = document.querySelector('.legend-race');
+raceCheckbox.addEventListener('click', function () {
+  if (raceCheckbox.checked) {
+    raceLayer.show();
+    raceLegend.style.display = 'block';
+  }
+  else {
+    raceLayer.hide();
+    raceLegend.style.display = 'none';
+  }
+});
 // Keep track of whether the BUS layer is currently visible
 var busVisible = true;
 
@@ -433,10 +489,14 @@ var busLegend = document.querySelector('.legend-access');
 busCheckbox.addEventListener('click', function () {
  if (busCheckbox.checked) {
    busLayer.show();
+   bikeLayer.show();
+   subwayLayer.show();
    busLegend.style.display = 'block';
   }
   else {
   busLayer.hide();
+  bikeLayer.hide();
+  subwayLayer.hide();
     busLegend.style.display = 'none';
   }
 });
@@ -472,6 +532,20 @@ subwayCheckbox.addEventListener('click', function () {
   else {
   subwayLayer.hide();
   subwayLegend.style.display = 'none';
+  }
+});
+
+// Keep track of whether the EQUIPAMENTO LAZER layer is currently visible
+var equipamentolazerVisible = true;
+
+// When the subway button is clicked, show or hide the layer
+var equipamentoCheckbox = document.querySelector('.equipamento-checkbox');
+equipamentoCheckbox.addEventListener('click', function () {
+ if (equipamentoCheckbox.checked) {
+   equipamentolazerLayer.show();
+  }
+  else {
+  equipamentolazerLayer.hide();
   }
 });
 

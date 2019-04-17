@@ -1269,9 +1269,15 @@ margin-top: 30px;
   margin-top: 30px;
 }
 
+.legend-race{
+  display: none;
+  width: 60%;
+  margin-top: 30px;
+}
+
 .legend-access {
   display: none;
-  width: 50%;
+  width: 60%;
   margin-top: 20px;
 }
 .panel-close{

@@ -268,6 +268,19 @@ z-index: 20000;
   padding-top:.2em;
 }
 
+container-colabore{
+  z-index: 3000;
+  text-align: left;
+  background-color: white;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top:0;
+  padding-bottom:100px;
+}
+
 .container-problema-2{
   z-index: 3000;
   text-align: center;
@@ -299,6 +312,13 @@ z-index: 20000;
   margin: 0.6em auto; 
   z-index: 2000;
   text-align: center;
+}
+
+.google-form{
+  margin: 0.6em auto; 
+  z-index: 2000;
+  text-align: center;
+  padding-top:1.2em; 
 }
 
 .faca-voce-mesmo{
@@ -852,18 +872,31 @@ a.maisinfo{
 }
 .people-picker {
     font-family: 'Inconsolata', monospace;
-  color: #b10cff; 
+  color: #999; 
 }
 .action-picker {
-    font-family: 'Inconsolata', monospace;
-   color: #b10cff; 
+    font-family: nudista-web, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+   color: #999 
 }
 .space-picker {
-    font-family: 'Inconsolata', monospace;
-   color: #b10cff; 
+    font-family: nudista-web, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+   color: #999 
 }
 .time-picker {
-    font-family: 'Inconsolata', monospace;
+    font-family: nudista-web, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+   color: #999; 
+}
+
+.neighborhood-search{
+    font-family: nudista-web, sans-serif;
+    font-weight: 400;
+    font-style: normal;
    color: #b10cff; 
 }
 
@@ -1201,7 +1234,30 @@ h9 {
     color: #16fc73;
     text-align: center;
     margin-top:0; 
-   
+}
+
+h10 {
+    display: block;
+    font-size: 13px;
+  font-family: nudista-web, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+  text-transform: uppercase;
+    color: #FE008B;
+    text-align: center;
+    margin-top:0; 
+   }
+
+h11 {
+    display: block;
+    font-size: 12px;
+    font-family:nudista-web, sans-serif;
+  font-weight: 400;
+    font-style: normal;
+    color: #FE008B;
+    text-align: center;
+    margin-top:0; 
+      line-height: 2em;
 }
 
 .panel-close, .panel-close:focus, .panel-close:hover, .panel-closeactive {
@@ -1278,6 +1334,17 @@ margin-top: 30px;
 .legend-access {
   display: none;
   width: 60%;
+  margin-top: 20px;
+}
+
+.legend-landuse {
+  display: none;
+  width: 60%;
+  margin-top: 20px;
+}
+.legend-lazer {
+  display: none;
+  width: 90%;
   margin-top: 20px;
 }
 .panel-close{
@@ -1375,3 +1442,17 @@ width: 50%;
 }
 
 #more {display: none;}
+
+[class^="icon"] {
+  width: 10px;
+  height: 10px;
+  position: relative;
+  top: 15px;
+  margin-right: 10px;
+  fill: deeppink;
+}
+
+/* Reposition the music note icon */
+.icon-search {
+  right: 5px;
+}

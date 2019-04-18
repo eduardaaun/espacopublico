@@ -286,27 +286,92 @@ var subwayStyle = new carto.style.CartoCSS(`
 var subwayLayer = new carto.layer.Layer(subwaySource, subwayStyle);
 subwayLayer.hide();
 
-// Initialze source data - layer equipamentos de lazer 
-var equipamentolazerSource = new carto.source.SQL('SELECT * FROM esporte_lazer')
+
+/*
+ * Begin layer - Land Use
+ */
+
+// Initialze source data
+var landuseSource = new carto.source.SQL('SELECT * FROM diversidade_de_usos_2');
 
 // Create style for the data
-var equipamentolazerStyle = new carto.style.CartoCSS(`
- #layer {
-  polygon-fill: ramp([agg_value], (#e1cad8, #dc93be, #d962a8, #ec47a8, #fe008b), quantiles);
+var landuseStyle = new carto.style.CartoCSS(`
+#layer {
+  polygon-fill: ramp([usos_iptu_], (#f9f206, #fe008b, #a11bef, #ff7800, #39aaf6, #ffffff), ("residencial", "comercio_servicos", "industrial_garag", "uso_misto", "institucional_lazer"), "=");
+  polygon-opacity: 1;
 }
 #layer::outline {
   line-width: 0;
   line-color: #FFFFFF;
-  line-opacity: 1;
+  line-opacity: 0.5;
 }
 `);
 // Add style to the data
-var equipamentolazerLayer = new carto.layer.Layer(equipamentolazerSource, equipamentolazerStyle);
-equipamentolazerLayer.hide();
+var landuseLayer = new carto.layer.Layer(landuseSource, landuseStyle);
+landuseLayer.hide();
+
+/*
+ * Begin layer - Land Use
+ */
+
+// Initialze source data
+var lazerSource = new carto.source.SQL('SELECT * FROM esporte_lazer');
+
+// Create style for the data
+var lazerStyle = new carto.style.CartoCSS(`
+#layer {
+  marker-width: 16;
+  marker-fill: ramp([tipo_mobil], (#fe008b, #fcb008, #d777f7, #8c30c1, #f9e70b, #00ff18, #b1fc4f, #600ea0, #ad670b, #ea54ad, #B3B3B3), ("PARQUE INFANTIL", "QUADRA POLIESPORTIVA", "PEC", "APARELHO DE GINASTICA", "QUADRA DE AREIA", "CAMPO SINTETICO", "CAMPO ILUMINADO", "SKATE PARK", "CAMPO TERRA BATIDA", "ANFITEATRO"), "=");
+  marker-fill-opacity: 1;
+  marker-file: ramp([tipo_mobil], (url('https://s3.amazonaws.com/com.cartodb.users-assets.production/maki-icons/star-18.svg'), url('https://s3.amazonaws.com/com.cartodb.users-assets.production/maki-icons/star-18.svg'), url('https://s3.amazonaws.com/com.cartodb.users-assets.production/maki-icons/star-18.svg'), url('https://s3.amazonaws.com/com.cartodb.users-assets.production/maki-icons/star-18.svg'), url('https://s3.amazonaws.com/com.cartodb.users-assets.production/maki-icons/star-18.svg'), url('https://s3.amazonaws.com/com.cartodb.users-assets.production/maki-icons/star-18.svg'), url('https://s3.amazonaws.com/com.cartodb.users-assets.production/maki-icons/star-18.svg'), url('https://s3.amazonaws.com/com.cartodb.users-assets.production/maki-icons/star-18.svg'), url('https://s3.amazonaws.com/com.cartodb.users-assets.production/maki-icons/star-18.svg'), url('https://s3.amazonaws.com/com.cartodb.users-assets.production/maki-icons/star-18.svg')), ("PARQUE INFANTIL", "QUADRA POLIESPORTIVA", "PEC", "APARELHO DE GINASTICA", "QUADRA DE AREIA", "CAMPO SINTETICO", "CAMPO ILUMINADO", "SKATE PARK", "CAMPO TERRA BATIDA", "ANFITEATRO"), "=");
+  marker-allow-overlap: true;
+  marker-line-width: 0;
+  marker-line-color: #FFFFFF;
+  marker-line-opacity: 1;
+  marker-comp-op: darken;
+[zoom >= 13] {
+    marker-fill-opacity: 1;
+    marker-line-opacity: 0;
+    marker-width: 15;
+}
+[zoom >= 20] {
+    marker-fill-opacity: 1;
+    marker-line-opacity: 0;
+    marker-width: 20;
+}
+}
+`);
+// Add style to the data
+var lazerLayer = new carto.layer.Layer(lazerSource, lazerStyle, {
+  featureClickColumns: ['tipo_mobil', 'iluminac_p', 'endereco']
+});
+lazerLayer.hide();
+
+
+var popup = L.popup();
+lazerLayer.on('featureClicked', function (event) {
+  
+  // Create the HTML that will go in the popup. event.data has all the data for 
+  // the clicked feature.
+  //
+  // I will add the content line-by-line here to make it a little easier to read.
+  var content = '<h10>' + event.data['tipo_mobil'] + '</h10>';
+  content += '<h11>Endereço: ' + event.data['endereco'] + ' <h11>';
+  popup.setContent(content);
+  
+  
+  // Place the popup and open it
+  popup.setLatLng(event.latLng);
+  popup.openOn(map);
+  map.setView([event.latLng.lat, event.latLng.lng], 15);
+});
+
+  
+
 
 
 // Add the data to the map as two layers. Order matters here--first one goes on the bottom
-client.addLayers([densityLayer, incomeLayer, raceLayer, busLayer, bikeLayer, subwayLayer, spacesLayer, casestudiesLayer]);
+client.addLayers([densityLayer, incomeLayer, raceLayer, landuseLayer, busLayer, bikeLayer, subwayLayer, spacesLayer,lazerLayer, casestudiesLayer]);
 client.getLeafletLayer().addTo(map);
 
 
@@ -329,8 +394,17 @@ neighborhoodSearch.addEventListener('keyup', function (e) {
   }
 
   // Zoom to the latitude and longitude of the clicked feature
-  map.setView([e.latLng.lat, e.latLng.lng], 15);
+  // map.setView([e.latLng.lat, e.latLng.lng], 15);
 
+  // EB:
+  //  We need to fetch the data from Carto using the SQL API, then ask it for the bounds of the data.
+  //  The first line asks Carto for a GeoJSON file of the selected data.
+  //  Once we have the data, we find out what its bounds are (getBounds) and tell the map to fit itself to those bounds.
+  fetch('https://eduardaaun.carto.com/api/v2/sql?format=geojson&q=' + encodeURIComponent(casestudiesSource.getQuery()))
+    .then(function (response) { return response.json(); })
+    .then(function (data) {
+      map.fitBounds(L.geoJson(data).getBounds());
+    });
   
   // Sometimes it helps to log messages, here we log the search text. You can see this if you open developer tools and look at the console.
   console.log('Input changed to "' + searchText + '"');
@@ -501,51 +575,37 @@ busCheckbox.addEventListener('click', function () {
   }
 });
 
-// Keep track of whether the BIKE layer is currently visible
-var bikeVisible = true;
+// Keep track of whether the LAND USE layer is currently visible
+var landuseVisible = true;
 
-// When the bike button is clicked, show or hide the layer
-var bikeCheckbox = document.querySelector('.bike-checkbox');
-var bikeLegend = document.querySelector('.legend-access');
-bikeCheckbox.addEventListener('click', function () {
- if (bikeCheckbox.checked) {
-   bikeLayer.show();
-   bikeLegend.style.display = 'block';
+// When the  land use button is clicked, show or hide the layer
+var landuseCheckbox = document.querySelector('.landuse-checkbox');
+var landuseLegend = document.querySelector('.legend-landuse');
+landuseCheckbox.addEventListener('click', function () {
+ if (landuseCheckbox.checked) {
+   landuseLayer.show();
+   landuseLegend.style.display = 'block';
   }
   else {
-  bikeLayer.hide();
-  bikeLegend.style.display = 'none';
+  landuseLayer.hide();
+  landuseLegend.style.display = 'none';
   }
 });
 
-// Keep track of whether the SUBWAY layer is currently visible
-var subwayVisible = true;
+// Keep track of whether the INCOME layer is currently visible
+var lazerVisible = true;
 
-// When the subway button is clicked, show or hide the layer
-var subwayCheckbox = document.querySelector('.subway-checkbox');
-var subwayLegend = document.querySelector('.legend-access');
-subwayCheckbox.addEventListener('click', function () {
- if (subwayCheckbox.checked) {
-   subwayLayer.show();
-   subwayLegend.style.display = 'block';
+// When the income button is clicked, show or hide the layer
+var lazerCheckbox = document.querySelector('.lazer-checkbox');
+var lazerLegend = document.querySelector('.legend-lazer');
+lazerCheckbox.addEventListener('click', function () {
+ if (lazerCheckbox.checked) {
+   lazerLayer.show();
+   lazerLegend.style.display = 'block';
   }
   else {
-  subwayLayer.hide();
-  subwayLegend.style.display = 'none';
-  }
-});
-
-// Keep track of whether the EQUIPAMENTO LAZER layer is currently visible
-var equipamentolazerVisible = true;
-
-// When the subway button is clicked, show or hide the layer
-var equipamentoCheckbox = document.querySelector('.equipamento-checkbox');
-equipamentoCheckbox.addEventListener('click', function () {
- if (equipamentoCheckbox.checked) {
-   equipamentolazerLayer.show();
-  }
-  else {
-  equipamentolazerLayer.hide();
+ lazerLayer.hide();
+    lazerLegend.style.display = 'none';
   }
 });
 

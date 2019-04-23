@@ -11,7 +11,7 @@ html, body {
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
-  z-index: 3000;
+  z-index: 40000;
   right: 0;
   padding: 14px 16px;
 }
@@ -27,6 +27,30 @@ html, body {
   padding: 14px 16px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
+}
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+  .nav-bar li a:not(:first-child) {display: none;}
+  .nav-bar li a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 600px) {
+  .nav-bar.responsive {position: relative;}
+  .nav-bar.responsive li a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .nav-bar.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
 }
 
 
@@ -81,6 +105,7 @@ color: white;
     height: 50px;
     margin-left: 30px;
   margin-top: 0px;
+  z-index:50000; 
 } 
   
 .map-wrapper {
@@ -115,6 +140,7 @@ color: white;
 @media screen and (max-width: 600px) {
   .left-sidebar {
     width: 50%;
+    display:none; 
   }
 } 
 
@@ -499,6 +525,32 @@ padding: 2em;
   padding: 15px; 
 }
 
+.mobile-initial{
+  width: 100%;
+  z-index: 30000;
+  display: none; 
+  background: white; 
+  position: absolute;
+top:0; 
+  padding:1em; 
+  padding-top:5em;
+  height: 100vh;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+  .mobile-initial {
+    display: block; 
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .mobile-initial {
+    display: block; 
+  }
+} 
+
 hr {
     display: block;
   width:100%; 
@@ -666,6 +718,27 @@ p{
   color : black;
   text-align:left;
   text-transform:uppercase;
+  margin-bottom:0px; 
+}
+
+.title-artigos{
+  font-family : nudista-web, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size : 1em;
+  color : #B10CFF;
+  text-align:left;
+  text-transform:uppercase;
+  margin-bottom:0px; 
+}
+
+.desc-artigos{
+  font-family : nudista-web, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size : .8em;
+  color : #B10CFF;
+  text-align:left;
   margin-bottom:0px; 
 }
 
@@ -1098,7 +1171,7 @@ h7 {
 }
 
 .sidebar-content {
-  display:none;
+  display:block;
    width: 250px;
 }
 
@@ -1258,6 +1331,18 @@ h11 {
     text-align: center;
     margin-top:0; 
       line-height: 2em;
+}
+
+h12 {
+    display: block;
+    font-size: 14px;
+    font-family:nudista-web, sans-serif;
+  font-weight: 400;
+    font-style: normal;
+    color: #b10cff;
+    text-align: center;
+    margin-top:0; 
+      line-height: 1.5em;
 }
 
 .panel-close, .panel-close:focus, .panel-close:hover, .panel-closeactive {
@@ -1455,4 +1540,8 @@ width: 50%;
 /* Reposition the music note icon */
 .icon-search {
   right: 5px;
+}
+
+.nav-bar .icon {
+  display: none;
 }

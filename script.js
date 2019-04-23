@@ -625,7 +625,7 @@ reqwest('https://eduardaaun.carto.com/api/v2/sql/?q=' + countSql, function (resp
   var sidebar = document.querySelector('.sidebar-feature-content');
 
   // Add the text including the sum to the sidebar
-  sidebar.innerHTML = '<h3>' + count + ' espaços públicos</div>';
+  sidebar.innerHTML = '<h3>' + count + ' espaços públicos mapeados</div>';
 });
 
 var sidebarbutton = document.querySelector('.sidebar-button');

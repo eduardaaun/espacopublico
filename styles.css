@@ -29,30 +29,6 @@ html, body {
   text-align: center;
 }
 
-/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
-@media screen and (max-width: 600px) {
-  .nav-bar li a:not(:first-child) {display: none;}
-  .nav-bar li a.icon {
-    float: right;
-    display: block;
-  }
-}
-
-/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
-@media screen and (max-width: 600px) {
-  .nav-bar.responsive {position: relative;}
-  .nav-bar.responsive li a.icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .nav-bar.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-}
-
 
 ul {
     list-style-type: none;
@@ -107,6 +83,25 @@ color: white;
   margin-top: 0px;
   z-index:50000; 
 } 
+
+.navbar-logo-map {
+  float: left;
+    vertical-align: top;
+    width: 150px;
+    height: 50px;
+  margin-top: 0px;
+  z-index:50000; 
+  display: none;
+} 
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .navbar-logo-map {
+    width: 50%;
+    display:block; 
+  }
+} 
+  
   
 .map-wrapper {
   position: relative;
@@ -155,27 +150,56 @@ z-index: 20000;
   margin: 8em auto; 
   z-index: 2000;
   height: 100%;
+  width:70%; 
   }
+
+@media screen and (max-width: 600px) {
+  .page-intro {
+    width: 85%;
+  }
+} 
+
 .o-que-fazer{
   margin: 8em auto; 
   margin-bottom: 4em;
   z-index: 2000;
   text-align: center;
+  width:70%; 
   }
 
+@media screen and (max-width: 600px) {
+  .o-que-fazer{
+    width: 85%;
+  }
+} 
+
 .o-problema{
+  width:70%; 
   margin: 8em auto; 
   z-index: 2000;
   text-align: center;
   margin-bottom: 40px;
   }
 
+@media screen and (max-width: 600px) {
+  .o-problema {
+    width: 85%;
+  }
+} 
+
 
 .secao-caixa{
   margin: 0.6em auto; 
   z-index: 2000;
   text-align: center;
+  width: 70%; 
   }
+
+@media screen and (max-width: 600px) {
+  .secao-caixa {
+    width: 100%;
+  }
+} 
 
 .problem-explain{
   margin: 0.6em auto; 
@@ -227,8 +251,18 @@ z-index: 20000;
     margin-bottom: 48px;
 }
 
+
+
 .top-margin{
     padding-top: 100px;
+  
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+  .top-margin{
+     padding-top: 0px;
+  }
 }
 
 .row-text {
@@ -269,6 +303,25 @@ z-index: 20000;
   padding-bottom:100px;
 }
 
+.container-pequeno{
+  z-index: 3000;
+  text-align: left;
+  background-color: white;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top:1em;
+}
+
+@media screen and (max-width: 600px) {
+  .container-pequeno {
+    padding-top:0.5em;
+     padding-bottom:0.5em;
+  }
+} 
+
 .container-brasilia{
   z-index: 3000;
   text-align: left;
@@ -286,7 +339,7 @@ z-index: 20000;
   z-index: 3000;
   text-align: center;
   background-color: white;
-  width: 100%;
+  width: 70%;
   margin-right: auto;
   margin-left: auto;
   padding-left: 15px;
@@ -294,7 +347,13 @@ z-index: 20000;
   padding-top:.2em;
 }
 
-container-colabore{
+@media screen and (max-width: 600px) {
+  .container-problema {
+    width: 100%;
+  }
+} 
+
+.container-colabore{
   z-index: 3000;
   text-align: left;
   background-color: white;
@@ -319,12 +378,26 @@ container-colabore{
   padding-top: 60px;
   padding-bottom: 15px;
 }
+
+.container-problema-3{
+  z-index: 3000;
+  text-align: left;
+  background-color: white;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 60px;
+  padding-bottom: 15px;
+}
+
 .purple {
   background-color: #B10CFF;
 }
 
 .background-green {
-  background-color: #daafef;
+  background-color: #ce91ea;
 }
 
 .legislacao{
@@ -338,21 +411,56 @@ container-colabore{
   margin: 0.6em auto; 
   z-index: 2000;
   text-align: center;
+  width: 70%; 
 }
+
+@media screen and (max-width: 600px) {
+  .container-saiba-direitos {
+    width: 100%;
+  }
+} 
 
 .google-form{
   margin: 0.6em auto; 
   z-index: 2000;
   text-align: center;
-  padding-top:1.2em; 
+  padding-top:1.2em;
 }
+
+@media screen and (max-width: 600px) {
+  .google-form {
+    width: 80%;
+    display: none; 
+  }
+} 
+
+.google-form-mobile{
+  margin: 0.6em auto; 
+  z-index: 2000;
+  text-align: center;
+  padding-top:1.2em;
+  display:none; 
+}
+
+@media screen and (max-width: 600px) {
+  .google-form-mobile {
+    width: 80%;
+    display: block; 
+  }
+} 
 
 .faca-voce-mesmo{
   z-index: 3000;
   text-align: center;
   margin: .8em auto; 
-  padding: 20px; 
+  width: 70%; 
   }
+
+@media screen and (max-width: 600px) {
+  .faca-voce-mesmo {
+    width: 100%;
+  }
+} 
 
 .espaco-publico-titulo{
   margin: 8em auto; 
@@ -454,6 +562,34 @@ padding: 2em;
   padding: 10px; 
 }
 
+.column-mb{
+  float: left;
+  width: 50%;
+  padding: 10px; 
+  display:none; 
+}
+
+@media screen and (max-width: 600px) {
+  .column-mb {
+    width: 100%;
+    display:block; 
+  }
+} 
+
+.column-dis{
+  float: left;
+  width: 50%;
+  padding: 10px; 
+  display: block; 
+}
+
+@media screen and (max-width: 600px) {
+  .column-dis {
+    width: 100%;
+    display:none;  
+  }
+} 
+
 .menor {
   padding-right:20px;
   padding-left:20px; 
@@ -463,7 +599,15 @@ padding: 2em;
   margin: 0.2em auto; 
   z-index: 4000;
    display: block; 
+  width:70%;
 }
+
+@media screen and (max-width: 600px) {
+  .row {
+    width: 100%;
+  }
+} 
+
 /* Clear floats */
 .row:after {
   content: "";
@@ -533,7 +677,7 @@ padding: 2em;
   position: absolute;
 top:0; 
   padding:1em; 
-  padding-top:5em;
+  padding-top:9em;
   height: 100vh;
 }
 
@@ -699,6 +843,17 @@ p{
   font-size: 1.2em;
   color: #B10CFF;
   line-height: 1.5; 
+}
+
+.text-purple{
+ font-family: nudista-web, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.4em;
+  color: #B10CFF;
+  line-height: 1.5; 
+  text-align: center; 
+  padding: 1em; 
 }
 
 .intro-text-white{
@@ -888,6 +1043,31 @@ text-transform: uppercase;
   text-align:left;
   text-transform:uppercase;
   margin-top:0px; 
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+  .texto-ep-titulo {
+     text-align:center;
+    font-size : 1.5em;
+  }
+}
+
+.texto-in-mobile {
+    display: block;
+    font-size: 14px;
+    font-family:nudista-web, sans-serif;
+  font-weight: 400;
+    font-style: normal;
+    color: #b10cff;
+    text-align: center;
+    margin-top:0; 
+      padding-top: 2em; 
+      line-height: 1.5em;
+}
+
+.underline{
+    text-decoration: underline;
 }
 
 
@@ -1148,7 +1328,7 @@ h7 {
   padding: 10px;
   margin: 15px; 
   position: fixed; 
-  z-index: 1; 
+  z-index: 10000; 
   top: 50px; 
   right: 5px;
   background-color: white; 
@@ -1199,12 +1379,25 @@ height: auto;
 margin: 0 auto;
 }
 
+.img-prob-sm{
+    width: 70%;
+  text-align: center;  
+}
+
 .img-column-center{
 max-width: 100%;
 height: auto;
 margin: 0 auto;
 vertical-align: middle;
 }
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .img-column-center {
+    padding-top: 3em;  
+    padding-bottom: 1.8em; 
+  }
+} 
 
 
 .center{
@@ -1235,10 +1428,6 @@ max-width: 90%;
 
 .faca-voce-mesmo{
   width: 70%;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
 }
 
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
@@ -1333,17 +1522,7 @@ h11 {
       line-height: 2em;
 }
 
-h12 {
-    display: block;
-    font-size: 14px;
-    font-family:nudista-web, sans-serif;
-  font-weight: 400;
-    font-style: normal;
-    color: #b10cff;
-    text-align: center;
-    margin-top:0; 
-      line-height: 1.5em;
-}
+
 
 .panel-close, .panel-close:focus, .panel-close:hover, .panel-closeactive {
     color: #FF7800;
@@ -1433,7 +1612,6 @@ margin-top: 30px;
   margin-top: 20px;
 }
 .panel-close{
-  display:none;
   cursor: pointer;
 }
 

@@ -665,7 +665,7 @@ padding: 2em;
 }
 
 .white-box{
-  background-color: #ffff9e; 
+  background-color: #eee; 
   padding: 15px; 
 }
 
@@ -1004,14 +1004,14 @@ p{
 
 .law-text{
  font-family:'Inconsolata', monospace;
-color: black;
+color: #b10cff;
 font-size: 1em;
 text-align: left;
 }
 
 .law-text-title{
  font-family:'Inconsolata', monospace;
-color: black;
+color: #b10cff;
 font-size: 1.1em;
 text-align: left;
 text-transform: uppercase;
@@ -1106,7 +1106,7 @@ border-bottom: solid 1px;
 
 a.link-orange{
 border-bottom: solid 1px; 
-color: black;  
+color: #B10CFF;  
 }
 a.link-orange:hover{
 border-bottom: solid 1px; 

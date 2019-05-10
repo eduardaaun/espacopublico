@@ -1729,3 +1729,96 @@ width: 50%;
 .nav-bar .icon {
   display: none;
 }
+
+
+.menu-toggle {
+    color: #b10cff;
+    float: right;
+    padding: 10px 20px;
+    font-size: 17px;
+    line-height: 20px;
+    cursor: pointer;
+    display: none;
+}
+
+/* Header Nav Menu Mobile */
+@media only screen and (max-width: 991px) {
+  .navbar-logo-map {
+    display: block;
+    width: 150px !important;
+  }
+
+     .menu-toggle {
+      display: block;
+     }
+     .p-menu nav {
+      background-color: #fff;
+      width: 80%;
+      height: 100%;
+      right:100%; 
+      top:0;
+      position:fixed;
+      overflow:scroll;
+      z-index: 99999999;
+      }
+     .p-menu nav.active{
+      width: 172%;
+      left: -72%;
+      margin-top: 12px;
+     }
+     .p-menu nav ul {
+      display: block;
+      text-align: left;
+     }
+     .p-menu nav ul li {
+      float: none;
+     }
+     .p-menu nav ul li a {
+        display: block;
+        padding: 10px 20px;
+     }
+     .p-menu nav ul > li > ul, .p-menu nav ul > li > ul > li > ul {
+      opacity: 0;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+      visibility: hidden;
+      -webkit-transition: .5s;
+      transition: .5s;
+    display: none;
+  }
+   .p-menu nav ul > li:hover ul, .p-menu nav ul > li > ul > li:hover > ul {
+      opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    visibility: visible;
+      background-color: rgba(0, 62, 111, 0.4);
+      display: block;
+  }
+   .p-menu nav ul li:before {
+        top:0px;
+    }
+     .p-menu nav ul li:hover ul, .p-menu nav > ul > li > ul > li:hover ul {
+      position: relative;
+     }
+     .p-menu nav ul li ul li {
+      width: 100%;
+     }
+     .p-menu nav ul li ul li a {
+      width: 90%;
+      border-bottom: 1px solid rgba(0,0,0, 0.3);
+     }
+
+    .p-menu nav > ul > li:before {
+      width: 10%;
+      border-bottom: 1px solid rgba(0,0,0, 0.3);
+      right: 0px;
+      padding-left: 10px;
+    }
+
+    .p-menu nav ul > li > ul > li > ul {
+        left:0;
+        top: 0;
+    }
+    .p-menu nav ul > li > ul > li > ul > li > ul {
+        left: 0;
+    }
+
+}

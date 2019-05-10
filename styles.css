@@ -1748,6 +1748,9 @@ width: 50%;
     width: 150px !important;
   }
 
+     .p-menu {
+      z-index: 999999999999;
+      }
      .menu-toggle {
       display: block;
      }
@@ -1759,7 +1762,7 @@ width: 50%;
       top:0;
       position:fixed;
       overflow:scroll;
-      z-index: 99999999;
+      z-index: 9999999999999;
       }
      .p-menu nav.active{
       width: 172%;
@@ -1821,4 +1824,194 @@ width: 50%;
         left: 0;
     }
 
+} none;
+  width: 60%;
+  margin-top: 20px;
 }
+.legend-lazer {
+  display: none;
+  width: 90%;
+  margin-top: 20px;
+}
+.panel-close{
+  cursor: pointer;
+}
+
+.attributions{
+  color:black;
+  font-family:'Inconsolata', monospace;
+  font-size:12px;
+  margin-top:30px;
+  
+}
+
+.calendar{
+margin-top:30px;
+  width:75%;
+}
+
+.logo{
+  margin-top:0;
+  width:75%;
+}
+
+.left-sidebar-content{
+  margin-top:0; 
+}
+
+.download-buttons{
+margin-top:30px;
+}
+
+.howto-carnival-button{
+    background-color: white; 
+    border: 2px solid deeppink;
+    color: deeppink;
+    padding: 5px 7px;
+   display:block; 
+  font-family: 'Inconsolata', monospace;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.howto-garden-button{
+    background-color: white; 
+    border: 2px solid #16FC73;
+    color: #16FC73;
+    padding: 5px 7px;
+    display: block; 
+    font-family: 'Inconsolata', monospace;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+  margin-top:9px;
+}
+
+.howto-walk-button{
+   background-color: white; 
+    border: 2px solid #B10CFF;
+    color: #B10CFF;
+    padding: 5px 7px;
+    display: block; 
+    font-family: 'Inconsolata', monospace;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+  margin-top:9px;
+}
+
+.legend-people{
+display: block;
+margin-top:30px;
+width:60%;
+}
+
+.howto-image{
+position: absolute;
+text-align: center; 
+width: 50%; 
+}
+
+.english-button{
+  position: absolute;
+  right:100px; 
+}
+
+.license{
+  padding: 50px; 
+  width:20px;
+  margin-left:20px;
+  margin-top:50px;
+  border:20px;
+}
+
+#more {display: none;}
+
+[class^="icon"] {
+  width: 10px;
+  height: 10px;
+  position: relative;
+  top: 15px;
+  margin-right: 10px;
+  fill: deeppink;
+}
+
+/* Reposition the music note icon */
+.icon-search {
+  right: 5px;
+}
+
+.nav-bar .icon {
+  display: none;
+}
+
+
+.menu-toggle {
+    color: #b10cff;
+    float: right;
+    padding: 10px 20px;
+    font-size: 17px;
+    line-height: 20px;
+    cursor: pointer;
+    display: none;
+}
+
+/* Header Nav Menu Mobile */
+@media only screen and (max-width: 991px) {
+  .navbar-logo-map {
+    display: block;
+    width: 150px !important;
+  }
+
+     .p-menu {
+      z-index: 999999999999;
+      }
+     .menu-toggle {
+      display: block;
+     }
+     .p-menu nav {
+      background-color: #fff;
+      width: 80%;
+      height: 100%;
+      right:100%; 
+      top:0;
+      position:fixed;
+      overflow:scroll;
+      z-index: 9999999999999;
+      }
+     .p-menu nav.active{
+      width: 172%;
+      left: -72%;
+      margin-top: 12px;
+     }
+     .p-menu nav ul {
+      display: block;
+      text-align: left;
+     }
+     .p-menu nav ul li {
+      float: none;
+     }
+     .p-menu nav ul li a {
+        display: block;
+        padding: 10px 20px;
+     }
+     .p-menu nav ul > li > ul, .p-menu nav ul > li > ul > li > ul {
+      opacity: 0;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+      visibility: hidden;
+      -webkit-transition: .5s;
+      transition: .5s;
+    display: none;
+  }
+   .p-menu nav ul > li:hover ul, .p-menu nav ul > li > ul > li:hover > ul {
+      opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    visibility: visible;
+      background-color: rgba(0, 62, 111, 0.4);
+      display: block;
+  }
+   .p-menu nav ul li:before {
+        top:0px;
+    }
+     .p-menu nav ul li:hover ul, .p-menu n

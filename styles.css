@@ -1758,6 +1758,7 @@ width: 50%;
   }
   #map {
     z-index: -2;
+    display: none;
 
   }
 
@@ -1787,10 +1788,12 @@ width: 50%;
      .p-menu nav ul {
       display: block;
       text-align: left;
+      transform: rotate(180deg);
      }
      .p-menu nav ul li {
       float: none;
       background-color: #fff;
+      transform: rotate(-180deg);
      }
      .p-menu nav ul li a {
         display: block;
@@ -1840,15 +1843,7 @@ width: 50%;
         left: 0;
     }
 
-};
-}
-
-.left-sidebar-content{
-  margin-top:0; 
-}
-
-.download-buttons{
-margin-top:30px;
+}x;
 }
 
 .howto-carnival-button{
@@ -1962,6 +1957,7 @@ width: 50%;
   }
   #map {
     z-index: -2;
+    display: none;
 
   }
 
@@ -1991,10 +1987,12 @@ width: 50%;
      .p-menu nav ul {
       display: block;
       text-align: left;
+      transform: rotate(180deg);
      }
      .p-menu nav ul li {
       float: none;
       background-color: #fff;
+      transform: rotate(-180deg);
      }
      .p-menu nav ul li a {
         display: block;
@@ -2003,9 +2001,4 @@ width: 50%;
      .p-menu nav ul > li > ul, .p-menu nav ul > li > ul > li > ul {
       opacity: 0;
       -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-      visibility: hidden;
-      -webkit-transition: .5s;
-      transition: .5s;
-    display: none;
-  }
-  
+      visibility: hid
